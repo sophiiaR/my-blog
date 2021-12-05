@@ -22,6 +22,11 @@ class PostSeeder extends Seeder
                 'imageable_id' => $post->id,
                 'imageable_type' => Post::class
             ]);
+            //a cada post le agrego 2 tags. Los tag_id son generados random (uno es un num entre 1 y 4, el otro entre 5 y 8)
+            $post->tags()->attach([
+                rand(1,4),
+                rand(5,8)
+            ]);
         }
     }
 }
