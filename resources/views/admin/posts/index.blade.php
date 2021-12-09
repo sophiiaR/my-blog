@@ -3,6 +3,8 @@
 @section('title', 'My Blog')
 
 @section('content_header')
+
+    <a href="{{route('admin.posts.create')}}" class="btn btn-secondary float-right">New Post</a>
     <h1>Posts list</h1>
 @stop
 
