@@ -10,31 +10,47 @@
     <div class="card">
         <div class="card-body">
             {!! Form::open(['route' => 'admin.posts.store', 'autocomplete' => 'off']) !!}
+                
+                {!! Form::hidden('user_id', auth()->user()->id) !!}
+
                 <div class="form-group">
-                    {!! Form::label('name', 'Nombre') !!}
+                    {!! Form::label('name', 'Name') !!}
                     {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Post name']) !!}
+                @error('name')
+                    <small class="text-danger">{{$message}}</small>
+                @enderror
                 </div>
                 <div class="form-group">
                     {!! Form::label('slug', 'Slug') !!}
                     {!! Form::text('slug', null, ['class' => 'form-control', 'placeholder' => 'Post slug', 'readonly']) !!}
+                @error('slug')
+                    <small class="text-danger">{{$message}}</small>
+                @enderror
                 </div>
                 <div class="form-group">
                     {!! Form::label('category_id', 'Category') !!}
                     {!! Form::select('category_id', $categories, null, ['class' => 'form-control']) !!}
+                @error('category_id')
+                    <small class="text-danger">{{$message}}</small>
+                @enderror
                 </div>
 
                 <div class="form-group">
                     <p class="font-weight-bold">Tags</p>
                     @foreach ($tags as $tag)
-                        <label class="mr-2">
+                        <label class="mr-3">
                             {!! Form::checkbox('tags[]', $tag->id, null) !!}
                             {{$tag->name}}
                         </label>
                     @endforeach
+                    @error('tags')
+                        <br>
+                        <small class="text-danger">{{$message}}</small>
+                    @enderror
                 </div>
                 <div class="form-group">
                     <p class="font-weight-bold">Status</p>
-                    <label>
+                    <label class="mr-3">
                         {!! Form::radio('status', 1, true) !!}
                         Draft
                     </label>
@@ -42,14 +58,24 @@
                         {!! Form::radio('status', 2) !!}
                         Published
                     </label>
+                    @error('status')
+                        <br>
+                        <small class="text-danger">{{$message}}</small>
+                    @enderror
                 </div>
                 <div class="form-group">
                     {!! Form::label('extract', 'Extract') !!}
                     {!! Form::textarea('extract', null, ['class' => 'form-control']) !!}
+                    @error('extract')
+                        <small class="text-danger">{{$message}}</small>
+                    @enderror
                 </div>
                 <div class="form-group">
                     {!! Form::label('body', 'Body') !!}
                     {!! Form::textarea('body', null, ['class' => 'form-control']) !!}
+                    @error('body')
+                        <small class="text-danger">{{$message}}</small>
+                    @enderror
                 </div>
                 {!! Form::submit('Create post', ['class' => 'btn btn-primary']) !!}
             {!! Form::close() !!}
