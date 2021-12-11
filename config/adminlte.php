@@ -247,31 +247,35 @@ return [
             'can'  => 'manage-blog',
         ],
         [
-            'text'        => 'Dashboard',
-            'route'         => 'admin.home',
-            'icon'        => 'fas fa-fw fa-tachometer-alt',
+            'text'  => 'Dashboard',
+            'route' => 'admin.home',
+            'icon'  => 'fas fa-fw fa-tachometer-alt',
+            'can'   => 'admin.home'
             // 'label'       => 4,
             // 'label_color' => 'success',
         ],
         [
-            'text'        => 'Users',
-            'route'         => 'admin.users.index',
-            'icon'        => 'fas fa-users fa-fw',
+            'text'   => 'Users',
+            'route'  => 'admin.users.index',
+            'icon'   => 'fas fa-users fa-fw',
+            'can'    => 'admin.users.index'
             // 'label'       => 4,
             // 'label_color' => 'success',
         ],
-        ['header' => 'ADMIN'],
+        // ['header' => 'ADMIN'],
         [
             'text' => 'Categories',
             'route'  => 'admin.categories.index',
             'icon' => 'fab fa-fw fa-buffer',
-            'active' => ['admin/categories*']
+            'active' => ['admin/categories*'],
+            'can'    => 'admin.categories.index'
         ],
         [
             'text' => 'Tags',
             'route'  => 'admin.tags.index',
             'icon' => 'far fa-fw fa-bookmark',
-            'active' => ['admin/tags*']
+            'active' => ['admin/tags*'],
+            'can'    => 'admin.tags.index'
         ],
         // [
         //     'text'    => 'multilevel',
@@ -311,17 +315,19 @@ return [
         //         ],
         //     ],
         // ],
-        ['header' => 'Blog options'],
+        ['header' => 'BLOG OPTIONS'],
         [
-            'text'       => 'Posts list',
-            'route'        => 'admin.posts.index',
-            'icon' => 'fas fa-fw fa-clipboard'
+            'text'   => 'Posts list',
+            'route'  => 'admin.posts.index',
+            'icon'   => 'fas fa-fw fa-clipboard',
+            'can'    => 'admin.posts.index'
         ],
         [
-            'text'       => 'Create new post',
+            'text'   => 'Create new post',
             // 'icon_color' => 'yellow',
-            'route'        => 'admin.posts.create',
-            'icon' => 'fas fa-fw fa-file'
+            'route'  => 'admin.posts.create',
+            'icon'   => 'fas fa-fw fa-file',
+            'can'    => 'admin.posts.create'
         ],
         // [
         //     'text'       => 'information',
