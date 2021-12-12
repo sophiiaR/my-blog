@@ -262,6 +262,14 @@ return [
             // 'label'       => 4,
             // 'label_color' => 'success',
         ],
+        [
+            'text'   => 'Roles',
+            'route'  => 'admin.roles.index',
+            'icon'   => 'fas fa-users-cog fa-fw',
+            //'can'    => 'admin.users.index'
+            // 'label'       => 4,
+            // 'label_color' => 'success',
+        ],
         // ['header' => 'ADMIN'],
         [
             'text' => 'Categories',
